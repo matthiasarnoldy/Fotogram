@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotogram</title>
 
+    <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
     <header class="header">
-        <section class="content_max-width">
+        <div class="content_max-width">
             <a href="#" class="header__logo">
                 <svg class="header__logoIcon icon" width="216" height="41" viewBox="0 0 216 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_401_1050)">
@@ -38,10 +39,10 @@
                     </defs>
                 </svg>
             </a>
-        </section>
+        </div>
     </header>
     <main class="main">
-        <section class="content_max-width main__content_max-width">
+        <div class="content_max-width main__content_max-width">
             <h1 class="main__headline">Your personal photo album</h1>
             <section class="main__imageSection">
                 <img class="main__images" src="./img/lion-3576045_1280.jpg" alt="">
@@ -57,10 +58,10 @@
                 <img class="main__images" src="./img/veligandu-island-1044366_1280.jpg" alt="">
                 <img class="main__images" src="./img/veligandu-island-1044366_1280.jpg" alt="">
             </section>
-        </section>
+        </div>
     </main>
     <footer class="footer footer-wave-container">
-        <section class="content_max-width footer__content_max-width">
+        <div class="content_max-width footer__content_max-width">
             <svg class="footer__logoIcon" viewBox="0 0 134 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M52.5124 13.441V11.3672C53.1396 11.3672 53.7285 11.252 54.2789 11.0216C54.8294 10.7784 55.3094 10.4456 55.719 10.0231C56.1287 9.6007 56.4487 9.10786 56.6791 8.54462C56.9095 7.98138 57.0247 7.37334 57.0247 6.72049C57.0247 6.06764 56.9095 5.4596 56.6791 4.89636C56.4487 4.33312 56.1287 3.84028 55.719 3.41785C55.3094 2.99542 54.8294 2.66899 54.2789 2.43858C53.7285 2.19536 53.1396 2.07375 52.5124 2.07375V0C53.8309 0 54.9958 0.288021 56.0071 0.864063C57.0311 1.4273 57.8312 2.21456 58.4072 3.22584C58.9961 4.23711 59.2905 5.40199 59.2905 6.72049C59.2905 8.02618 58.9961 9.18467 58.4072 10.1959C57.8312 11.2072 57.0311 12.0009 56.0071 12.5769C54.9958 13.153 53.8309 13.441 52.5124 13.441ZM49.7282 13.441V11.3672H52.5124V13.441H49.7282ZM48.2881 13.441V0H50.5155V13.441H48.2881ZM49.7282 2.07375V0H52.5124V2.07375H49.7282Z" fill="white"/>
                 <path d="M65.2489 13.6714C64.3145 13.6714 63.4824 13.4602 62.7527 13.0377C62.0231 12.6025 61.4534 12.0073 61.0438 11.252C60.6342 10.4968 60.4294 9.6263 60.4294 8.64063C60.4294 7.65496 60.6406 6.78449 61.063 6.02924C61.4855 5.27398 62.0615 4.68514 62.7911 4.26271C63.5208 3.82748 64.3657 3.60986 65.3257 3.60986C66.1706 3.60986 66.9386 3.83388 67.6299 4.28191C68.3211 4.71714 68.8652 5.35079 69.262 6.18285C69.6716 7.01491 69.8765 8.00698 69.8765 9.15907H67.7067C67.7195 8.32701 67.6235 7.64216 67.4187 7.10452C67.2267 6.56688 66.945 6.17005 66.5738 5.91403C66.2026 5.64521 65.761 5.5108 65.2489 5.5108C64.7113 5.5108 64.2505 5.63241 63.8664 5.87563C63.4952 6.11885 63.2072 6.47727 63.0024 6.95091C62.7975 7.41174 62.6951 7.99418 62.6951 8.69823C62.6951 9.32548 62.8167 9.86312 63.06 10.3112C63.3032 10.7592 63.6296 11.1048 64.0392 11.348C64.4617 11.5784 64.9289 11.6937 65.4409 11.6937C66.0042 11.6937 66.4714 11.5656 66.8426 11.3096C67.2139 11.0408 67.5019 10.7016 67.7067 10.2919L69.6844 11.1368C69.4156 11.6488 69.0764 12.0969 68.6668 12.4809C68.2571 12.8649 67.7643 13.1594 67.1883 13.3642C66.6122 13.569 65.9658 13.6714 65.2489 13.6714ZM61.8311 9.15907L61.8503 7.45014H68.7628V9.15907H61.8311Z" fill="white"/>
@@ -93,9 +94,9 @@
                     188.3 282 188.3 235.1 235.2C188.2 282.1 188.2 358 235.1 404.9C282 451.8 357.9 451.8 404.8 404.9C414.2 
                     395.5 414.2 380.3 404.8 371C395.4 361.7 380.2 361.6 370.9 371C342.8 399.1 297.2 399.1 269.1 371z"/>
                 </svg>
-                2025 Developer Akademie GmbH
+                <span>2025 Developer Akademie GmbH</span>
             </p>
-        </section>
+        </div>
     </footer>
 </body>
 </html>
