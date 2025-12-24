@@ -23,7 +23,6 @@ body {
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -116,32 +115,83 @@ a:hover {
     object-position: 15%;
 }
 
-dialog
+/* dialog */
 .main__dialog {
+    margin: auto;
     padding: 40px;
     background-color: #09222A;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    border: none;
     border-radius: 40px;
 }
 
+dialog::backdrop {
+    opacity: 0;
+    background-color: black;
+    transition: all 1s ease-in;
+}
+
+dialog.opened::backdrop {
+    opacity: 0.5;
+    transition: all 125ms ease-in;
+}
+
 .main__dialog_header {
+    padding: 0 0 40px;
+    color: white;
     display: flex;
     justify-content: space-between;
-    padding: 0 40px 40px;
+}
+
+.main__dialog_headline {
+    margin-top: 4px;
 }
 
 .main__dialog_icon {
-    height: 24px;
+    height: 40px;
     cursor: pointer;
+}
+
+.main__dialog_header_icon {
+    padding: 4px;
+    background-size: contain;
+    fill: white;
+    border-radius: 50%;
+    transition: all 125ms ease-in-out;
+}
+
+.main__dialog_header_icon:hover {
+    background-color: #124658;
 }
 
 .main__dialog_image {
     height: 50vh;
     width: 50vh;
     object-fit: cover;
+}
+
+.main__dialog_footer {
+    padding: 40px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.main__dialog_image-number {
+    margin-top: 18px;
+    color: white;
+}
+
+.main__dialog_footer_icon {
+    padding: 10px;
+    height: 56px;
+    fill: #fd5c4f;
+    background-color: #1f1e23;
+    border-radius: 50%;
+    transition: all 125ms ease-in-out;
+}
+
+.main__dialog_footer_icon:hover {
+    background-color: #362528;
 }
 
 /* footer */
