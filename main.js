@@ -1,0 +1,112 @@
+let main__imageSection = document.getElementById('main__imageSection');
+// main__imageSection.innerHTML = '';
+
+let main__images = [];
+
+function renderImages() {
+    let main__image_lion = new Image();
+    main__image_lion.src = './assets/lion-majestic.jpg';
+    main__image_lion.setAttribute('class', 'main__images main__image-position100');
+    main__image_lion.setAttribute('alt', 'Majestätischer Löwe');
+    main__image_lion.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_lion);
+
+    let main__image_tree_by_sunset = new Image();
+    main__image_tree_by_sunset.src = './assets/tree-by-sunset.jpg';
+    main__image_tree_by_sunset.setAttribute('class', 'main__images');
+    main__image_tree_by_sunset.setAttribute('alt', 'Wundervoller Blick aufs Meer');
+    main__image_tree_by_sunset.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_tree_by_sunset);
+
+    let main__image_waterbungalows = new Image();
+    main__image_waterbungalows.src = './assets/malediven-waterbungalows.jpg';
+    main__image_waterbungalows.setAttribute('class', 'main__images');
+    main__image_waterbungalows.setAttribute('alt', 'Bungalow am Meer');
+    main__image_waterbungalows.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_waterbungalows);
+
+    let main__image_waterfall = new Image();
+    main__image_waterfall.src = './assets/waterfall.jpg';
+    main__image_waterfall.setAttribute('class', 'main__images');
+    main__image_waterfall.setAttribute('alt', 'Wasserfall');
+    main__image_waterfall.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_waterfall);
+
+    let main__image_lake_hills = new Image();
+    main__image_lake_hills.src = './assets/lake-with-hills.jpg';
+    main__image_lake_hills.setAttribute('class', 'main__images main__image-position15');
+    main__image_lake_hills.setAttribute('alt', 'Bergsee');
+    main__image_lake_hills.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_lake_hills);
+
+    let main__image_elephants = new Image();
+    main__image_elephants.src = './assets/elephants-with-babys.jpg';
+    main__image_elephants.setAttribute('class', 'main__images main__image-position80');
+    main__image_elephants.setAttribute('alt', 'Elefantenfamilie');
+    main__image_elephants.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_elephants);
+
+    let main__image_big_ben = new Image();
+    main__image_big_ben.src = './assets/big-ben-by-night.jpg';
+    main__image_big_ben.setAttribute('class', 'main__images');
+    main__image_big_ben.setAttribute('alt', 'Big Ben bei Nacht');
+    main__image_big_ben.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_big_ben);
+
+    let main__image_aerial_cliff = new Image();
+    main__image_aerial_cliff.src = './assets/aerialView-cliff.jpg';
+    main__image_aerial_cliff.setAttribute('class', 'main__images main__image-position15');
+    main__image_aerial_cliff.setAttribute('alt', 'Haus am Meer');
+    main__image_aerial_cliff.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_aerial_cliff);
+
+    let main__image_cat_lying = new Image();
+    main__image_cat_lying.src = './assets/lying-cat.jpg';
+    main__image_cat_lying.setAttribute('class', 'main__images');
+    main__image_cat_lying.setAttribute('alt', 'Liegende Katze');
+    main__image_cat_lying.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_cat_lying);
+
+    let main__image_ferrari = new Image();
+    main__image_ferrari.src = './assets/ferrari-488-gtb.jpg';
+    main__image_ferrari.setAttribute('class', 'main__images main__image-position15');
+    main__image_ferrari.setAttribute('alt', 'Ferrari 488 GTB');
+    main__image_ferrari.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_ferrari);
+
+    let main__image_surfing_waves = new Image();
+    main__image_surfing_waves.src = './assets/surfing-waves.jpg';
+    main__image_surfing_waves.setAttribute('class', 'main__images');
+    main__image_surfing_waves.setAttribute('alt', 'Wellensurfer');
+    main__image_surfing_waves.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_surfing_waves);
+
+    let main__image_tokyo_by_night = new Image();
+    main__image_tokyo_by_night.src = './assets/tokyo-by-night.jpg';
+    main__image_tokyo_by_night.setAttribute('class', 'main__images');
+    main__image_tokyo_by_night.setAttribute('alt', 'Tokyo bei Nacht');
+    main__image_tokyo_by_night.setAttribute('onclick', 'openDialog()');
+    main__images.push(main__image_tokyo_by_night);
+
+    for (let i = 0; i < main__images.length; i++) {
+        main__imageSection.innerHTML += `<figure>${main__images[i].outerHTML}</figure>`
+    }
+}
+
+let dialogRef = document.getElementById('main__dialog');
+let main__dialog_headline = document.getElementById('main__dialog_headline');
+let main__dialog_images = document.getElementById('main__dialog_images');
+
+function openDialog() {
+    main__dialog_headline.innerHTML = `${main__images[1].alt}`;
+    // main__dialog_images.innerHTML = `<figure>${main__images[0].outerHTML}</figure>`;s
+    dialogRef.showModal();
+    dialogRef.classList.add('opened');
+}
+
+function closeDialog() {
+    dialogRef.close();
+    dialogRef.classList.remove('opened');
+}
+
+console.log(main__images);

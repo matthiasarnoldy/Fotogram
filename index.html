@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
-<body>
+<body onload="renderImages()">
     <header class="header">
         <div class="content_max-width">
             <a href="index.html" class="header__logo">
@@ -44,8 +44,8 @@
     <main class="main">
         <div class="content_max-width main__content_max-width">
             <h1 class="main__headline" tabindex="-1">Your personal photo album</h1>
-            <section class="main__imageSection">
-                <figure><img onclick="openDialog()" class="main__images main__image-position100" src="./assets/lion-majestic.jpg" alt="Majestätischer Löwe"></figure>
+            <section id="main__imageSection" class="main__imageSection">
+                <!-- <figure><img onclick="openDialog()" class="main__images main__image-position100" src="./assets/lion-majestic.jpg" alt="Majestätischer Löwe"></figure>
                 <figure><img onclick="openDialog()" class="main__images" src="./assets/tree-by-sunset.jpg" alt="Baum am Meer mit einem schönen Sonnenuntergang"></figure>
                 <figure><img onclick="openDialog()" class="main__images" src="./assets/malediven-waterbungalows.jpg" alt="Wasserbungalows mit hellblauem Wasser"></figure>
                 <figure><img onclick="openDialog()" class="main__images" src="./assets/waterfall.jpg" alt="Wasserfall mit einem Sonnenuntergang"></figure>
@@ -56,7 +56,7 @@
                 <figure><img onclick="openDialog()" class="main__images" src="./assets/lying-cat.jpg" alt="Liegende Katze"></figure>
                 <figure><img onclick="openDialog()" class="main__images main__image-position15" src="./assets/ferrari-488-gtb.jpg" alt="Geparkter Ferrari 488 GTB"></figure>
                 <figure><img onclick="openDialog()" class="main__images" src="./assets/surfing-waves.jpg" alt="Surfer auf einer Welle"></figure>
-                <figure><img onclick="openDialog()" class="main__images" src="./assets/tokyo-by-night.jpg" alt="Japanische Einkaufsstraße bei Nacht"></figure>
+                <figure><img onclick="openDialog()" class="main__images" src="./assets/tokyo-by-night.jpg" alt="Japanische Einkaufsstraße bei Nacht"></figure> -->
             </section>
         </div>
     </main>
@@ -102,9 +102,9 @@
         </div>
     </footer>
 
-    <dialog id="myDialog" class="main__dialog" closedby="any">
+    <dialog id="main__dialog" class="main__dialog" closedby="any">
         <header class="main__dialog_header">
-            <h2 class="main__dialog_headline">Image-name</h2>
+            <h2 id="main__dialog_headline" class="main__dialog_headline">Image-name</h2>
             <svg onclick="closeDialog()" class="main__dialog_icon main__dialog_header_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                 <path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 
                 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 
@@ -112,7 +112,7 @@
                 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"/>
             </svg>
         </header>
-        <section>
+        <section id="main__dialog_images">
             <figure><img class="main__dialog_image main__image-position100" src="./assets/lion-majestic.jpg" alt="Majestätischer Löwe"></figure>
         </section>
         <footer class="main__dialog_footer">
@@ -145,17 +145,7 @@
     </dialog>
 
     <script>
-        const dialogRef = document.getElementById('myDialog');
-
-        function openDialog() {
-            dialogRef.showModal();
-            dialogRef.classList.add('opened');
-        }
-
-        function closeDialog() {
-            dialogRef.close();
-            dialogRef.classList.remove('opened');
-        }
+        
     </script>
 </body>
 </html>
