@@ -270,6 +270,40 @@ dialog.opened::backdrop {
     color: #124658;
 }
 
+/* impressum */
+.main__impressum {
+    align-items: normal;
+}
+
+.impressum__content_max-width {
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: start;
+}
+
+.main__impressum_section {
+    padding-top: 48px;
+}
+
+.main__impressum-header {
+    padding: 24px 0 8px;
+}
+
+.main__impressum-text {
+    padding: 8px 0;
+}
+
+.main__impressum_datenschutz {
+    padding: 8px 0 32px;
+}
+
+.main__impressum-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: none;
+    text-underline-position: none;
+    text-underline-offset: none;
+}
+
 @media(max-width: 990px) {
     /* Allgemein */
     h1 {
