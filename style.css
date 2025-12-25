@@ -31,6 +31,11 @@ h1 {
     font-weight: 700;
 }
 
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
 a {
     color: #627c84;
     text-decoration: none;
@@ -71,8 +76,8 @@ a:hover {
 }
 
 .main__content_max-width {
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     gap: 96px;
 }
 
@@ -118,10 +123,14 @@ a:hover {
 /* dialog */
 .main__dialog {
     margin: auto;
-    padding: 40px;
+    padding: 40px 50px;
     background-color: #09222A;
-    border: none;
+    border: 3px solid #124658;
     border-radius: 40px;
+}
+
+.main__dialog.opened {
+    animation: main__dialog_keyframe-image 0.5s ease-in-out;
 }
 
 dialog::backdrop {
@@ -137,13 +146,11 @@ dialog.opened::backdrop {
 
 .main__dialog_header {
     padding: 0 0 40px;
+    max-width: 600px;
     color: white;
     display: flex;
     justify-content: space-between;
-}
-
-.main__dialog_headline {
-    margin-top: 4px;
+    gap: 24px;
 }
 
 .main__dialog_icon {
@@ -152,7 +159,9 @@ dialog.opened::backdrop {
 }
 
 .main__dialog_header_icon {
+    margin-top: 4px;
     padding: 4px;
+    width: 40px;
     background-size: contain;
     fill: white;
     border-radius: 50%;
@@ -163,17 +172,27 @@ dialog.opened::backdrop {
     background-color: #124658;
 }
 
+.main__dialog_header_icon:active {
+    background-color: #0e3240;
+}
+
 .main__dialog_image {
-    height: 50vh;
-    width: 50vh;
+    height: 600px;
+    width: 600px;
     object-fit: cover;
 }
 
 .main__dialog_footer {
-    padding: 40px 0 0;
+    padding: 40px 56px 0 0;
     display: flex;
     justify-content: center;
-    gap: 48px;
+}
+
+.main__dialog_footer_navigation {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    flex-grow: 1;
 }
 
 .main__dialog_image-number {
@@ -194,6 +213,32 @@ dialog.opened::backdrop {
     background-color: #362528;
 }
 
+.main__dialog_footer_icon:active {
+    background-color: #312023;
+}
+
+.main__dialog_footer-like {
+    padding: 10px;
+    height: 56px;
+    fill: white;
+    border-radius: 50%;
+    transition: all 125ms ease-in-out;
+}
+
+.main__dialog_footer-like:hover {
+    background-color: #124658;
+}
+
+.main__dialog_footer-like:active {
+    background-color: #0e3240;
+}
+
+.main__dialog_footer-liked {
+    /* when image liked, set class: main__dialog_footer-liked */
+    fill: #fd5c4f;
+    /* animation: main__dialog_keyframe-like 1s ease-in-out; */
+}
+
 /* footer */
 .footer {
     padding: 24px 0;
@@ -206,7 +251,6 @@ dialog.opened::backdrop {
 
 .footer__content_max-width {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 12px;
@@ -223,13 +267,17 @@ dialog.opened::backdrop {
 }
 
 .footer__copyright {
-    color: #627c84;
+    color: #124658;
 }
 
 @media(max-width: 990px) {
     /* Allgemein */
     h1 {
         font-size: 48px;
+    }
+
+    h2 {
+        font-size: 36px;
     }
 
     /* header */
@@ -264,6 +312,51 @@ dialog.opened::backdrop {
         width: 160px;
     }
 
+    /* dialog */
+    .main__dialog {
+        padding: 32px 40px;
+        border-radius: 32px;
+    }
+
+    .main__dialog_header {
+        padding: 0 0 32px;
+        max-width: 480px;
+    }
+
+    .main__dialog_icon {
+        height: 40px;
+    }
+
+    .main__dialog_header_icon {
+        margin-top: 4px;
+        width: 40px;
+    }
+
+    .main__dialog_image {
+        height: 480px;
+        width: 480px;
+    }
+
+    .main__dialog_footer {
+        padding: 32px 56px 0 0;
+    }
+
+    .main__dialog_footer_navigation {
+        gap: 48px;
+    }
+
+    .main__dialog_image-number {
+        margin-top: 18px;
+    }
+
+    .main__dialog_footer_icon {
+        height: 56px;
+    }
+
+    .main__dialog_footer-like {
+        height: 56px;
+    }
+
     /* footer */
     .footer {
         padding: 20px 0;
@@ -274,7 +367,7 @@ dialog.opened::backdrop {
     }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 610px) {
     /* Allgemein */
     body {
         font-size: 16px;
@@ -282,6 +375,10 @@ dialog.opened::backdrop {
 
     h1 {
         font-size: 36px;
+    }
+
+    h2 {
+        font-size: 24px;
     }
 
     .content_max-width {
@@ -316,6 +413,50 @@ dialog.opened::backdrop {
         width: 160px;
     }
 
+    /* dialog */
+    .main__dialog {
+        padding: 24px 32px;
+        border-radius: 24px;
+    }
+
+    .main__dialog_header {
+        padding: 0 0 24px;
+    }
+
+    .main__dialog_icon {
+        height: 40px;
+    }
+
+    .main__dialog_header_icon {
+        margin-top: 0px;
+        width: 40px;
+    }
+
+    .main__dialog_image {
+        height: 70vw;
+        width: 70vw;
+    }
+
+    .main__dialog_footer {
+        padding: 24px 56px 0 0;
+    }
+
+    .main__dialog_footer_navigation {
+        gap: 24px;
+    }
+
+    .main__dialog_image-number {
+        margin-top: 18px;
+    }
+
+    .main__dialog_footer_icon {
+        height: 56px;
+    }
+
+    .main__dialog_footer-like {
+        height: 56px;
+    }
+
     /* footer */
     .footer {
         padding: 20px 0;
@@ -331,6 +472,42 @@ dialog.opened::backdrop {
 
     .footer__Icon {
         height: 18px;
+    }
+}
+
+@media(max-width:460px) {
+    /* Allgemein */
+    h2 {
+        font-size: 20px;
+    }
+
+    /* dialog */
+    .main__dialog_header {
+        padding: 0 0 12px;
+    }
+
+    .main__dialog_header_icon {
+        margin-top: -8px;
+    }
+
+    .main__dialog_image {
+        height: 50vh;
+        width: 100%;
+        object-position: 80%;
+    }
+
+    .main__dialog_footer {
+        padding: 24px 0 0 0;
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .main__dialog_footer:last-child {
+        align-items: center;
+    }
+
+    .main__dialog_footer-like {
+        width: 56px;
     }
 }
 
@@ -368,8 +545,8 @@ dialog.opened::backdrop {
     }
 
     .main__images {
-        height: calc(100vw - 40px);
-        width: calc(100vw - 40px);
+        height: 120px;
+        width: 120px;
     }
 
     .main__images:hover {
@@ -379,5 +556,23 @@ dialog.opened::backdrop {
     /* footer */
     .footer__logoIcon {
         height: 28px;
+    }
+}
+
+@keyframes main__dialog_keyframe-image {
+    0% {
+        scale: 0;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes main__dialog_keyframe-like {
+    0% {
+        scale: 1;
+    }
+    100% {
+        scale: 2;
     }
 }
