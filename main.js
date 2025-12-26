@@ -96,6 +96,7 @@ function renderImages() {
 let dialogRef = document.getElementById('main__dialog');
 let main__dialog_headline = document.getElementById('main__dialog_headline');
 let main__dialog_images = document.getElementById('main__dialog_images');
+let main__dialog_image_number = document.getElementById('main__dialog_image-number');
 
 function openDialog(i) {
     for (let i = 0; i < main__images.length; i++) {
@@ -104,6 +105,7 @@ function openDialog(i) {
     }
     main__dialog_headline.innerHTML = `${main__images[i].alt}`;
     main__dialog_images.innerHTML = `<figure>${main__images[i].outerHTML}</figure>`;
+    main__dialog_image_number.innerHTML = `${i + 1}`;
     dialogRef.showModal();
     dialogRef.classList.add('opened');
 }
