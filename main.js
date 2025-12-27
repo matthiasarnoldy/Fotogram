@@ -108,23 +108,16 @@ function openDialog(i) {
     dialogRef.showModal();
     dialogRef.classList.add('opened');
     currentImage = i;
+    if (!main__images[currentImage].classList.contains('liked')) {
+        main__dialog_footer_like.classList.remove('main__dialog_footer-liked');
+    } else {
+        main__dialog_footer_like.classList.add('main__dialog_footer-liked');
+    }
 }
 
 function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove('opened');
-}
-
-function nextImage() {
-    if (currentImage == main__images.length - 1) {
-        currentImage = main__images.length - main__images.length;
-    } else {
-        currentImage = currentImage + 1 % main__images.length;
-    }
-    main__dialog_images.innerHTML = `<figure>${main__images[currentImage].outerHTML}</figure>`;
-    main__dialog_headline.innerHTML = `${main__images[currentImage].alt}`;
-    main__dialog_image_number.innerHTML = `${currentImage + 1}`;
-    openDialog(currentImage);
 }
 
 function previousImage() {
@@ -139,12 +132,24 @@ function previousImage() {
     openDialog(currentImage);
 }
 
+function nextImage() {
+    if (currentImage == main__images.length - 1) {
+        currentImage = main__images.length - main__images.length;
+    } else {
+        currentImage = currentImage + 1 % main__images.length;
+    }
+    main__dialog_images.innerHTML = `<figure>${main__images[currentImage].outerHTML}</figure>`;
+    main__dialog_headline.innerHTML = `${main__images[currentImage].alt}`;
+    main__dialog_image_number.innerHTML = `${currentImage + 1}`;
+    openDialog(currentImage);
+}
+
 function like() {
-    if (!main__dialog_footer_like.classList.contains('main__dialog_footer-liked')) {
+    if (!main__images[currentImage].classList.contains('liked')) {
+        main__images[currentImage].classList.add('liked');
         main__dialog_footer_like.classList.add('main__dialog_footer-liked');
     } else {
+        main__images[currentImage].classList.remove('liked');
         main__dialog_footer_like.classList.remove('main__dialog_footer-liked');
     }
 }
-
-// console.log(main__images);
