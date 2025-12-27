@@ -235,9 +235,8 @@ dialog.opened::backdrop {
 }
 
 .main__dialog_footer-liked {
-    /* when image liked, set class: main__dialog_footer-liked */
     fill: #fd5c4f;
-    /* animation: main__dialog_keyframe-like 1s ease-in-out; */
+    animation: main__dialog_keyframe-like 1s ease-in-out;
 }
 
 /* footer */
@@ -605,11 +604,16 @@ dialog.opened::backdrop {
 @keyframes main__dialog_keyframe-like {
     0% {
         scale: 1;
+        rotate: -360deg;
+        background-color: transparent;
     }
     50% {
-        scale: 2;
+        scale: 5;
+        translate: 25vw -40vh;
+        background-color: transparent;
     }
     100% {
         scale: 1;
+        background-color: transparent;
     }
 }

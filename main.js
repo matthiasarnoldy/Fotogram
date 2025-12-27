@@ -1,7 +1,13 @@
 let main__imageSection = document.getElementById('main__imageSection');
-// main__imageSection.innerHTML = '';
+
+let dialogRef = document.getElementById('main__dialog');
+let main__dialog_headline = document.getElementById('main__dialog_headline');
+let main__dialog_images = document.getElementById('main__dialog_images');
+let main__dialog_image_number = document.getElementById('main__dialog_image-number');
+let main__dialog_footer_like = document.getElementById('main__dialog_footer-like');
 
 let main__images = [];
+let currentImage;
 
 function renderImages() {
     let main__image_lion = new Image();
@@ -14,7 +20,7 @@ function renderImages() {
     let main__image_tree_by_sunset = new Image();
     main__image_tree_by_sunset.src = './assets/tree-by-sunset.jpg';
     main__image_tree_by_sunset.setAttribute('class', 'main__images');
-    main__image_tree_by_sunset.setAttribute('alt', 'Wundervoller Blick aufs Meer');
+    main__image_tree_by_sunset.setAttribute('alt', 'Sonnenuntergang am Meer');
     main__image_tree_by_sunset.setAttribute('onclick', 'openDialog(1)');
     main__images.push(main__image_tree_by_sunset);
 
@@ -93,26 +99,52 @@ function renderImages() {
     }
 }
 
-let dialogRef = document.getElementById('main__dialog');
-let main__dialog_headline = document.getElementById('main__dialog_headline');
-let main__dialog_images = document.getElementById('main__dialog_images');
-let main__dialog_image_number = document.getElementById('main__dialog_image-number');
-
 function openDialog(i) {
-    for (let i = 0; i < main__images.length; i++) {
-        main__images[i].classList.remove('main__images');
-        main__images[i].classList.add('main__dialog_image');
-    }
+    main__images[i].classList.remove('main__images');
+    main__images[i].classList.add('main__dialog_image');
     main__dialog_headline.innerHTML = `${main__images[i].alt}`;
     main__dialog_images.innerHTML = `<figure>${main__images[i].outerHTML}</figure>`;
     main__dialog_image_number.innerHTML = `${i + 1}`;
     dialogRef.showModal();
     dialogRef.classList.add('opened');
+    currentImage = i;
 }
 
 function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove('opened');
+}
+
+function nextImage() {
+    if (currentImage == main__images.length - 1) {
+        currentImage = main__images.length - main__images.length;
+    } else {
+        currentImage = currentImage + 1 % main__images.length;
+    }
+    main__dialog_images.innerHTML = `<figure>${main__images[currentImage].outerHTML}</figure>`;
+    main__dialog_headline.innerHTML = `${main__images[currentImage].alt}`;
+    main__dialog_image_number.innerHTML = `${currentImage + 1}`;
+    openDialog(currentImage);
+}
+
+function previousImage() {
+    if (currentImage == 0) {
+        currentImage = main__images.length - 1;
+    } else {
+        currentImage = currentImage - 1 % main__images.length;
+    }
+    main__dialog_images.innerHTML = `<figure>${main__images[currentImage].outerHTML}</figure>`;
+    main__dialog_headline.innerHTML = `${main__images[currentImage].alt}`;
+    main__dialog_image_number.innerHTML = `${currentImage + 1}`;
+    openDialog(currentImage);
+}
+
+function like() {
+    if (!main__dialog_footer_like.classList.contains('main__dialog_footer-liked')) {
+        main__dialog_footer_like.classList.add('main__dialog_footer-liked');
+    } else {
+        main__dialog_footer_like.classList.remove('main__dialog_footer-liked');
+    }
 }
 
 // console.log(main__images);
