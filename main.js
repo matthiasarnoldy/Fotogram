@@ -1,122 +1,49 @@
-let main__imageSection = document.getElementById('main__imageSection');
-let header__logo = document.getElementById('header__logo');
+let imageSection = document.getElementById('main__imageSection');
+let logoHeader = document.getElementById('header__logo');
 
 let dialogRef = document.getElementById('main__dialog');
-let main__dialog_headline = document.getElementById('main__dialog_headline');
-let main__dialog_images = document.getElementById('main__dialog_images');
-let main__dialog_image_number = document.getElementById('main__dialog_image-number');
-let main__dialog_footer_like = document.getElementById('main__dialog_footer-like');
-let main__images_wacg = document.querySelector('.main__images');
-let main__dialog_header_icon = document.getElementById('main__dialog_header_icon');
+let dialogHeadline = document.getElementById('main__dialog_headline');
+let dialogImages = document.getElementById('main__dialog_images');
+let dialogImageNumber = document.getElementById('main__dialog_image-number');
+let dialogLikeButton = document.getElementById('main__dialog_footer-like');
+let dialogHeaderIcon = document.getElementById('main__dialog_header_icon');
+let dialogLikeButtonLiked = document.querySelector('.main__dialog_footer-liked');
 let previousButton = document.getElementById('previousButton');
 let nextButton = document.getElementById('nextButton');
 
-let main__images = [];
+let mainImages = [];
 let currentImage;
 
 function renderImages() {
-    let main__image_lion = new Image();
-    main__image_lion.src = './assets/lion-majestic.jpg';
-    main__image_lion.setAttribute('class', 'main__images main__image-position100');
-    main__image_lion.setAttribute('alt', 'Majestätischer Löwe');
-    main__image_lion.setAttribute('tabindex', '0');
-    main__image_lion.setAttribute('onclick', 'openDialog(0)');
-    main__images.push(main__image_lion);
+    setImage('./assets/lion-majestic.jpg', 'Majestätischer Löwe', 0, 'main__images', 'main__image-position100');
+    setImage('./assets/tree-by-sunset.jpg', 'Sonnenuntergang am Meer', 1, 'main__images');
+    setImage('./assets/malediven-waterbungalows.jpg', 'Bungalow am Meer', 2, 'main__images');
+    setImage('./assets/waterfall.jpg', 'Wasserfall', 3, 'main__images');
+    setImage('./assets/lake-with-hills.jpg', 'Bergsee', 4, 'main__images', 'main__image-position15');
+    setImage('./assets/elephants-with-babys.jpg', 'Elefantenfamilie', 5, 'main__images', 'main__image-position80');
+    setImage('./assets/big-ben-by-night.jpg', 'Big Ben bei Nacht', 6, 'main__images');
+    setImage('./assets/aerialView-cliff.jpg', 'Haus am Meer', 7, 'main__images', 'main__image-position15');
+    setImage('./assets/lying-cat.jpg', 'Liegende Katze', 8, 'main__images');
+    setImage('./assets/ferrari-488-gtb.jpg', 'Ferrari 488 GTB', 9, 'main__images', 'main__image-position15');
+    setImage('./assets/surfing-waves.jpg', 'Wellensurfer', 10, 'main__images');
+    setImage('./assets/tokyo-by-night.jpg', 'Tokyo bei Nacht', 11, 'main__images');
 
-    let main__image_tree_by_sunset = new Image();
-    main__image_tree_by_sunset.src = './assets/tree-by-sunset.jpg';
-    main__image_tree_by_sunset.setAttribute('class', 'main__images');
-    main__image_tree_by_sunset.setAttribute('alt', 'Sonnenuntergang am Meer');
-    main__image_tree_by_sunset.setAttribute('tabindex', '0');
-    main__image_tree_by_sunset.setAttribute('onclick', 'openDialog(1)');
-    main__images.push(main__image_tree_by_sunset);
-
-    let main__image_waterbungalows = new Image();
-    main__image_waterbungalows.src = './assets/malediven-waterbungalows.jpg';
-    main__image_waterbungalows.setAttribute('class', 'main__images');
-    main__image_waterbungalows.setAttribute('alt', 'Bungalow am Meer');
-    main__image_waterbungalows.setAttribute('tabindex', '0');
-    main__image_waterbungalows.setAttribute('onclick', 'openDialog(2)');
-    main__images.push(main__image_waterbungalows);
-
-    let main__image_waterfall = new Image();
-    main__image_waterfall.src = './assets/waterfall.jpg';
-    main__image_waterfall.setAttribute('class', 'main__images');
-    main__image_waterfall.setAttribute('alt', 'Wasserfall');
-    main__image_waterfall.setAttribute('tabindex', '0');
-    main__image_waterfall.setAttribute('onclick', 'openDialog(3)');
-    main__images.push(main__image_waterfall);
-
-    let main__image_lake_hills = new Image();
-    main__image_lake_hills.src = './assets/lake-with-hills.jpg';
-    main__image_lake_hills.setAttribute('class', 'main__images main__image-position15');
-    main__image_lake_hills.setAttribute('alt', 'Bergsee');
-    main__image_lake_hills.setAttribute('tabindex', '0');
-    main__image_lake_hills.setAttribute('onclick', 'openDialog(4)');
-    main__images.push(main__image_lake_hills);
-
-    let main__image_elephants = new Image();
-    main__image_elephants.src = './assets/elephants-with-babys.jpg';
-    main__image_elephants.setAttribute('class', 'main__images main__image-position80');
-    main__image_elephants.setAttribute('alt', 'Elefantenfamilie');
-    main__image_elephants.setAttribute('tabindex', '0');
-    main__image_elephants.setAttribute('onclick', 'openDialog(5)');
-    main__images.push(main__image_elephants);
-
-    let main__image_big_ben = new Image();
-    main__image_big_ben.src = './assets/big-ben-by-night.jpg';
-    main__image_big_ben.setAttribute('class', 'main__images');
-    main__image_big_ben.setAttribute('alt', 'Big Ben bei Nacht');
-    main__image_big_ben.setAttribute('tabindex', '0');
-    main__image_big_ben.setAttribute('onclick', 'openDialog(6)');
-    main__images.push(main__image_big_ben);
-
-    let main__image_aerial_cliff = new Image();
-    main__image_aerial_cliff.src = './assets/aerialView-cliff.jpg';
-    main__image_aerial_cliff.setAttribute('class', 'main__images main__image-position15');
-    main__image_aerial_cliff.setAttribute('alt', 'Haus am Meer');
-    main__image_aerial_cliff.setAttribute('tabindex', '0');
-    main__image_aerial_cliff.setAttribute('onclick', 'openDialog(7)');
-    main__images.push(main__image_aerial_cliff);
-
-    let main__image_cat_lying = new Image();
-    main__image_cat_lying.src = './assets/lying-cat.jpg';
-    main__image_cat_lying.setAttribute('class', 'main__images');
-    main__image_cat_lying.setAttribute('alt', 'Liegende Katze');
-    main__image_cat_lying.setAttribute('tabindex', '0');
-    main__image_cat_lying.setAttribute('onclick', 'openDialog(8)');
-    main__images.push(main__image_cat_lying);
-
-    let main__image_ferrari = new Image();
-    main__image_ferrari.src = './assets/ferrari-488-gtb.jpg';
-    main__image_ferrari.setAttribute('class', 'main__images main__image-position15');
-    main__image_ferrari.setAttribute('alt', 'Ferrari 488 GTB');
-    main__image_ferrari.setAttribute('tabindex', '0');
-    main__image_ferrari.setAttribute('onclick', 'openDialog(9)');
-    main__images.push(main__image_ferrari);
-
-    let main__image_surfing_waves = new Image();
-    main__image_surfing_waves.src = './assets/surfing-waves.jpg';
-    main__image_surfing_waves.setAttribute('class', 'main__images');
-    main__image_surfing_waves.setAttribute('alt', 'Wellensurfer');
-    main__image_surfing_waves.setAttribute('tabindex', '0');
-    main__image_surfing_waves.setAttribute('onclick', 'openDialog(10)');
-    main__images.push(main__image_surfing_waves);
-
-    let main__image_tokyo_by_night = new Image();
-    main__image_tokyo_by_night.src = './assets/tokyo-by-night.jpg';
-    main__image_tokyo_by_night.setAttribute('class', 'main__images');
-    main__image_tokyo_by_night.setAttribute('alt', 'Tokyo bei Nacht');
-    main__image_tokyo_by_night.setAttribute('tabindex', '0');
-    main__image_tokyo_by_night.setAttribute('onclick', 'openDialog(11)');
-    main__images.push(main__image_tokyo_by_night);
-
-    for (let i = 0; i < main__images.length; i++) {
-        main__imageSection.innerHTML += `<figure>${main__images[i].outerHTML}</figure>`
+    for (let i = 0; i < mainImages.length; i++) {
+        imageSection.innerHTML += `<figure>${mainImages[i].outerHTML}</figure>`
     }
 }
 
-main__imageSection.addEventListener('keyup', function(event) {
+function setImage(path, alt, i, class1, class2) {
+    let newImage = new Image();
+    newImage.src = path;
+    newImage.setAttribute('alt', alt);
+    newImage.setAttribute('tabindex','0');
+    newImage.setAttribute('onclick', 'openDialog(' + i + ')');
+    newImage.classList.add(class1, class2);
+    mainImages.push(newImage);
+};
+
+imageSection.addEventListener('keyup', function(event) {
     if (event.keyCode === 13) {
         openDialog(0);
     }
@@ -124,20 +51,20 @@ main__imageSection.addEventListener('keyup', function(event) {
 
 
 function openDialog(i) {
-    main__images[i].classList.remove('main__images');
-    main__images[i].classList.add('main__dialog_image');
-    main__dialog_headline.innerHTML = `${main__images[i].alt}`;
-    main__dialog_images.innerHTML = `<figure>${main__images[i].outerHTML}</figure>`;
-    main__dialog_image_number.innerHTML = `${i + 1}`;
+    mainImages[i].classList.remove('main__images');
+    mainImages[i].classList.add('main__dialog_image');
+    dialogHeadline.innerHTML = `${mainImages[i].alt}`;
+    dialogImages.innerHTML = `<figure>${mainImages[i].outerHTML}</figure>`;
+    dialogImageNumber.innerHTML = `${i + 1}`;
     dialogRef.showModal();
     dialogRef.classList.add('opened');
     currentImage = i;
-    if (!main__images[currentImage].classList.contains('liked')) {
-        main__dialog_footer_like.classList.remove('main__dialog_footer-liked');
+    if (!mainImages[currentImage].classList.contains('liked')) {
+        dialogLikeButton.classList.remove('main__dialog_footer-liked');
     } else {
-        main__dialog_footer_like.classList.add('main__dialog_footer-liked');
+        dialogLikeButton.classList.add('main__dialog_footer-liked');
     }
-    main__dialog_header_icon.addEventListener('keyup', function(event) {
+    dialogHeaderIcon.addEventListener('keyup', function(event) {
         if (event.keyCode === 13) {
             closeDialog();
         }
@@ -147,7 +74,7 @@ function openDialog(i) {
 function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove('opened');
-    header__logo.focus();
+    logoHeader.focus();
 }
 
 document.body.addEventListener('keyup', function(event) {
@@ -157,20 +84,20 @@ document.body.addEventListener('keyup', function(event) {
 })
 
 previousButton.addEventListener('keyup', function(event) {
-    if (event.keyCode === 13 || event.keyCode === 37) {
+    if (event.keyCode === 13) {
         previousImage();
     }
 })
 
 function previousImage() {
     if (currentImage == 0) {
-        currentImage = main__images.length - 1;
+        currentImage = mainImages.length - 1;
     } else {
-        currentImage = currentImage - 1 % main__images.length;
+        currentImage = currentImage - 1 % mainImages.length;
     }
-    main__dialog_images.innerHTML = `<figure>${main__images[currentImage].outerHTML}</figure>`;
-    main__dialog_headline.innerHTML = `${main__images[currentImage].alt}`;
-    main__dialog_image_number.innerHTML = `${currentImage + 1}`;
+    dialogImages.innerHTML = `<figure>${mainImages[currentImage].outerHTML}</figure>`;
+    dialogHeadline.innerHTML = `${mainImages[currentImage].alt}`;
+    dialogImageNumber.innerHTML = `${currentImage + 1}`;
     openDialog(currentImage);
 }
 
@@ -181,35 +108,37 @@ document.body.addEventListener('keyup', function(event) {
 })
 
 nextButton.addEventListener('keyup', function(event) {
-    if (event.keyCode === 13 || event.keyCode === 39) {
+    if (event.keyCode === 13) {
         nextImage();
     }
 })
 
 function nextImage() {
-    if (currentImage == main__images.length - 1) {
-        currentImage = main__images.length - main__images.length;
+    if (currentImage == mainImages.length - 1) {
+        currentImage = mainImages.length - mainImages.length;
     } else {
-        currentImage = currentImage + 1 % main__images.length;
+        currentImage = currentImage + 1 % mainImages.length;
     }
-    main__dialog_images.innerHTML = `<figure>${main__images[currentImage].outerHTML}</figure>`;
-    main__dialog_headline.innerHTML = `${main__images[currentImage].alt}`;
-    main__dialog_image_number.innerHTML = `${currentImage + 1}`;
+    dialogImages.innerHTML = `<figure>${mainImages[currentImage].outerHTML}</figure>`;
+    dialogHeadline.innerHTML = `${mainImages[currentImage].alt}`;
+    dialogImageNumber.innerHTML = `${currentImage + 1}`;
     openDialog(currentImage);
 }
 
-main__dialog_footer_like.addEventListener('keyup', function(event) {
+dialogLikeButton.addEventListener('keyup', function(event) {
     if (event.keyCode === 13) {
         like();
     }
 })
 
 function like() {
-    if (!main__images[currentImage].classList.contains('liked')) {
-        main__images[currentImage].classList.add('liked');
-        main__dialog_footer_like.classList.add('main__dialog_footer-liked');
+    if (!mainImages[currentImage].classList.contains('liked')) {
+        mainImages[currentImage].classList.add('liked');
+        dialogLikeButton.classList.add('main__dialog_footer-liked');
+        // dialogLikeButtonLiked.setAttribute('style', 'animation: main__dialog_keyframe-like 1s ease-in-out');
     } else {
-        main__images[currentImage].classList.remove('liked');
-        main__dialog_footer_like.classList.remove('main__dialog_footer-liked');
+        mainImages[currentImage].classList.remove('liked');
+        dialogLikeButton.classList.remove('main__dialog_footer-liked');
+        // dialogLikeButtonLiked.setAttribute('style', 'animation: none');
     }
 }

@@ -177,6 +177,10 @@ dialog.opened::backdrop {
     background-color: #0e3240;
 }
 
+.main__dialog_headline {
+    height: 47px;
+}
+
 .main__dialog_image {
     height: 600px;
     width: 600px;
@@ -199,6 +203,7 @@ dialog.opened::backdrop {
 .main__dialog_image-number {
     margin-top: 18px;
     color: white;
+    width: 45px;
 }
 
 .main__dialog_footer_icon {
@@ -311,7 +316,7 @@ dialog.opened::backdrop {
     }
 
     h2 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     /* header */
@@ -609,7 +614,7 @@ dialog.opened::backdrop {
     }
     50% {
         scale: 5;
-        translate: 25vw -40vh;
+        translate: 5vw -40vh;
         background-color: transparent;
     }
     100% {
