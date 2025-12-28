@@ -62,6 +62,7 @@ function openDialog(i) {
     if (!mainImages[currentImage].classList.contains('liked')) {
         dialogLikeButton.classList.remove('main__dialog_footer-liked');
     } else {
+        dialogLikeButton.style.animation = 'none';
         dialogLikeButton.classList.add('main__dialog_footer-liked');
     }
     dialogHeaderIcon.addEventListener('keyup', function(event) {
@@ -134,11 +135,10 @@ dialogLikeButton.addEventListener('keyup', function(event) {
 function like() {
     if (!mainImages[currentImage].classList.contains('liked')) {
         mainImages[currentImage].classList.add('liked');
+        dialogLikeButton.style.animation = 'main__dialog_keyframe-like 1s ease-in-out';
         dialogLikeButton.classList.add('main__dialog_footer-liked');
-        // dialogLikeButtonLiked.setAttribute('style', 'animation: main__dialog_keyframe-like 1s ease-in-out');
     } else {
         mainImages[currentImage].classList.remove('liked');
         dialogLikeButton.classList.remove('main__dialog_footer-liked');
-        // dialogLikeButtonLiked.setAttribute('style', 'animation: none');
     }
 }
