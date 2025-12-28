@@ -49,7 +49,6 @@ imageSection.addEventListener('keyup', function(event) {
     }
 });
 
-
 function openDialog(i) {
     mainImages[i].classList.remove('main__images');
     mainImages[i].classList.add('main__dialog_image');
@@ -59,17 +58,21 @@ function openDialog(i) {
     dialogRef.showModal();
     dialogRef.classList.add('opened');
     currentImage = i;
+    likeValidation();
+    dialogHeaderIcon.addEventListener('keyup', function(event) {
+        if (event.keyCode === 13) {
+            closeDialog();
+        }
+    });
+}
+
+function likeValidation() {
     if (!mainImages[currentImage].classList.contains('liked')) {
         dialogLikeButton.classList.remove('main__dialog_footer-liked');
     } else {
         dialogLikeButton.style.animation = 'none';
         dialogLikeButton.classList.add('main__dialog_footer-liked');
     }
-    dialogHeaderIcon.addEventListener('keyup', function(event) {
-        if (event.keyCode === 13) {
-            closeDialog();
-        }
-    });
 }
 
 function closeDialog() {
